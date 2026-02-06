@@ -107,14 +107,14 @@ Check versions:
 python3 --version
 pip3 --version
 git --version
-
+```
 ## 📂 Clone the Repository
-
 Clone the project repository and navigate into it:
 
 ```bash
 git clone https://github.com/<your-username>/MedusaAI.git
 cd MedusaAI
+```
 
 ## 🛠️ Create Virtual Environment
 Create a virtual environment to manage dependencies:
@@ -129,11 +129,11 @@ Install the required Python packages:
 
 Upgrade pip:
 ```bash
-pip install --upgrade pip
+pip3 install --upgrade pip
 ```
 
 ```bash
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ## 🧠 Download NLP Resources
