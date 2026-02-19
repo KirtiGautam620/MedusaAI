@@ -164,3 +164,16 @@ python3 src/sample_run.py
 
 Expected output:
 All imports working!
+
+## 📦 Dataset Setup
+
+-- Due to size constraints, the raw dataset is not stored in this repository.
+
+1. Download the dataset from:
+   [link here — Google Drive / Kaggle / Zenodo]
+
+2. Place the file in:
+   data/raw/
+
+3. Ensure the filename matches:
+   arxiv_metadata.json
