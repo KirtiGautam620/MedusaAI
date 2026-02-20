@@ -169,8 +169,7 @@ All imports working!
 
 Due to size constraints, the raw dataset is not stored in this repository.
 
-1. Download the dataset from:
-   [link here — https://www.kaggle.com/datasets/Cornell-University/arxiv]
+1. Download the dataset from the link provided in the project objective.
 
 2. Place the file in:
    data/raw/
