@@ -253,6 +253,7 @@ Evaluate topic quality using corpus-based coherence metrics.
 
 **Command:**
 ```bash
+python3 -m pip install gensim
 python3 -m src.topic_modeling.coherence --sample-size 100000
 ```
 
