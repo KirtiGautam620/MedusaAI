@@ -2,8 +2,8 @@
 import json
 from pathlib import Path
 from tqdm import tqdm
-from summarizer import get_text, split_sentences, generate_summary
-from topic_inference import predict_topic, get_topic_distribution
+from .summarizer import get_text, split_sentences, generate_summary
+from .topic_inference import predict_topic, get_topic_distribution
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 

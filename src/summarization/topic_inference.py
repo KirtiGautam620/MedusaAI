@@ -8,8 +8,8 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parents[2]
 
-MODEL_PATH = BASE_DIR / "data/processed/lda_model.pkl"
-VECTORIZER_PATH = BASE_DIR / "data/processed/tfidf_vectorizer.pkl"
+MODEL_PATH = BASE_DIR / "data/processed/lda_model.joblib"
+VECTORIZER_PATH = BASE_DIR / "data/processed/tfidf_vectorizer.joblib"
 TOPICS_PATH = BASE_DIR / "data/processed/topics.json"
 
 # Load trained artifacts 

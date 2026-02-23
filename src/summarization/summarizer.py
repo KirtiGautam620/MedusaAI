@@ -7,7 +7,7 @@ import numpy as np
 from nltk.tokenize import sent_tokenize, word_tokenize
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-from topic_inference import predict_topic, get_topic_distribution
+from .topic_inference import predict_topic, get_topic_distribution
 
 
 # clean text
