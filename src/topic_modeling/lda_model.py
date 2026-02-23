@@ -105,7 +105,7 @@ def run(
 	topics_path = save_topics(topics, output_dir)
 	print(f"  Topics saved to: {topics_path}")
 
-	model_path = save_lda_model(lda, output_dir / "lda_model.pkl")
+	model_path = save_lda_model(lda, output_dir / "lda_model.joblib")
 	print(f"  LDA model saved to: {model_path}")
 
 	print(f"\n{'='*60}")

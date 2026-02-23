@@ -1,5 +1,6 @@
 import argparse
 import csv
+import joblib
 import json
 from pathlib import Path
 from scipy import sparse
@@ -114,6 +115,7 @@ def save_artifacts(matrix, vectorizer, doc_ids, output_dir):
 	matrix_path = output_dir / "document_term_matrix_tfidf.npz"
 	vocab_path = output_dir / "tfidf_vocabulary.json"
 	metadata_path = output_dir / "tfidf_documents.json"
+	vectorizer_path = output_dir / "tfidf_vectorizer.joblib"
 
 	sparse.save_npz(matrix_path, matrix)
 
@@ -123,7 +125,9 @@ def save_artifacts(matrix, vectorizer, doc_ids, output_dir):
 	with metadata_path.open("w", encoding="utf-8") as outfile:
 		json.dump(doc_ids, outfile)
 
-	return matrix_path, vocab_path, metadata_path
+	joblib.dump(vectorizer, vectorizer_path)
+
+	return matrix_path, vocab_path, metadata_path, vectorizer_path
 
 def run(
 	input_path=DEFAULT_INPUT,
@@ -143,7 +147,7 @@ def run(
 		min_df=min_df,
 		max_df=max_df,
 	)
-	matrix_path, vocab_path, metadata_path = save_artifacts(
+	matrix_path, vocab_path, metadata_path, vectorizer_path = save_artifacts(
 		matrix=matrix,
 		vectorizer=vectorizer,
 		doc_ids=doc_ids,
@@ -159,6 +163,7 @@ def run(
 	print(f"  Matrix: {matrix_path}")
 	print(f"  Vocabulary: {vocab_path}")
 	print(f"  Document IDs: {metadata_path}")
+	print(f"  Vectorizer (Joblib): {vectorizer_path}")
 
 def parse_args():
 	parser = argparse.ArgumentParser(
