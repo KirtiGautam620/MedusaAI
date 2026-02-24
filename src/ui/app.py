@@ -1,3 +1,4 @@
+import gdown
 import streamlit as st
 import os
 import sys
@@ -7,7 +8,21 @@ import pandas as pd
 from pathlib import Path
 from pypdf import PdfReader
 from PIL import Image
+CHECK_FILE = Path("data/processed/embeddings.npy")
+if not CHECK_FILE.exists():
+    os.makedirs("data/processed", exist_ok=True)
 
+    zip_path = "model_files.zip"
+
+    st.info("Downloading model files... please wait ⏳")
+
+    gdown.download(
+        st.secrets["MODEL_URL"],
+        zip_path,
+        quiet=False
+    )
+
+    os.system(f"unzip {zip_path}")
 # Add project root to sys.path to resolve 'src' imports
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 
@@ -267,7 +282,8 @@ def show_input_page():
             # Load generated header image
             header_img_path = "/Users/kirtig/.gemini/antigravity/brain/a61ef82e-815f-4978-82a0-5d2805dfbafa/research_analysis_header_1771855161620.png"
             if os.path.exists(header_img_path):
-                st.image(header_img_path, width='stretch')
+                # st.image(header_img_path, width='stretch')
+                st.image("src/ui/assets/header.png", use_container_width=True)
             else:
                 st.info("Header image not found.")
 
